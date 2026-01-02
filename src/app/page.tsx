@@ -1,65 +1,75 @@
-import Image from "next/image";
+import Countdown from '@/components/Countdown';
+import HeroSection from '@/components/HeroSection';
+import { KazakhOrnament, OrnamentDivider, OrnamentPattern, OrnamentFrame } from '@/components/KazakhOrnament';
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="min-h-screen bg-[var(--cream)]">
+      {/* Hero секция с фото на фоне */}
+      <HeroSection />
+
+      {/* Основной контент */}
+      <div className="relative">
+        {/* Фоновый узор */}
+        <OrnamentPattern />
+
+        <div className="relative z-10 max-w-2xl mx-auto px-6 py-16">
+          {/* Дата и место */}
+          <OrnamentFrame className="mb-16 animate-fade-in-up">
+            <div className="bg-white rounded-2xl p-8 md:p-12 shadow-xl border border-[var(--gold)]/30">
+              <div className="text-center mb-8">
+                <p className="text-[var(--burgundy)] text-lg mb-3 tracking-wide">Той күні</p>
+                <p className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl font-bold text-[var(--deep-blue)]">
+                  9 Қаңтар 2026
+                </p>
+                <p className="text-2xl text-[var(--gold)] mt-3 font-semibold">18:00</p>
+              </div>
+
+              <OrnamentDivider className="w-32 mx-auto my-8" />
+
+              <div className="text-center">
+                <p className="text-[var(--burgundy)] text-lg mb-3 tracking-wide">Мекен-жай</p>
+                <p className="font-[family-name:var(--font-playfair)] text-3xl md:text-4xl font-bold text-[var(--deep-blue)]">
+                  Дослық Тойханасы
+                </p>
+              </div>
+            </div>
+          </OrnamentFrame>
+
+          {/* Таймер */}
+          <section className="text-center mb-16 animate-fade-in-up animation-delay-200">
+            <p className="text-xl text-[var(--deep-blue)] mb-8 font-semibold tracking-wide">
+              Тойға дейін қалды
+            </p>
+            <Countdown />
+          </section>
+
+          {/* Орнамент разделитель */}
+          <div className="flex justify-center mb-16">
+            <KazakhOrnament className="w-80 h-12" />
+          </div>
+
+          {/* Пожелание */}
+          <section className="text-center animate-fade-in-up animation-delay-400">
+            <div className="bg-gradient-to-r from-transparent via-[var(--gold)]/20 to-transparent py-8 px-4 rounded-lg">
+              <p className="font-[family-name:var(--font-playfair)] text-2xl md:text-3xl text-[var(--deep-blue)] italic">
+                «Ақ жол тілейміз!»
+              </p>
+              <p className="text-[var(--burgundy)] mt-4 text-lg">
+                Сіздерді күтеміз
+              </p>
+            </div>
+          </section>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </div>
+
+      {/* Футер */}
+      <footer className="bg-[var(--deep-blue)] py-8">
+        <KazakhOrnament className="w-full max-w-md mx-auto h-10" />
+        <p className="text-center text-[var(--gold-light)] mt-4 text-sm opacity-70">
+          Нұрдаулет & Жаңылсын • 2026
+        </p>
+      </footer>
+    </main>
   );
 }
